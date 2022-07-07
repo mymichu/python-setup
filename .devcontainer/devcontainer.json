@@ -1,0 +1,38 @@
+{
+	"name": "Python Poetry",
+	"build": {
+		"dockerfile": "Dockerfile",
+		"context": "."
+	},
+	"postCreateCommand": "poetry config virtualenvs.in-project true && poetry update",
+	"customizations": {
+		"vscode": {
+			"settings": {
+				"python.linting.pylintEnabled": true,
+				"python.linting.mypyEnabled": true,
+				"python.linting.enabled": true,
+				"python.formatting.provider": "black",
+				"python.venvPath": "${workspaceFolder}/.venv/",
+				"python.poetryPath": "poetry",
+				"python.defaultInterpreterPath": "${workspaceFolder}/.venv/bin/python",
+				"python.testing.pytestEnabled": true,
+				"python.testing.cwd": "${workspaceFolder}/tests",
+				"python.analysis.autoImportCompletions": true,
+				"editor.formatOnSave": true,
+				"python.linting.mypyArgs": [
+					"--config-file=pyproject.toml"
+				]
+			},
+			"extensions": [
+				"ms-python.python",
+				"ms-python.vscode-pylance",
+				"GitHub.copilot",
+				"mhutchie.git-graph",
+				"eamodio.gitlens",
+				"yzhang.markdown-all-in-one",
+				"bierner.markdown-mermaid"
+			]
+		}
+	},
+	"remoteUser": "dev"
+}
